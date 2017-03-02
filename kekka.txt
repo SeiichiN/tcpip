@@ -1,0 +1,17 @@
+/* TCPMessageServer TCPMessageClient の実行結果
+   2017.01.25 08:05 */
+
+
+<<< サーバー側の動き >>>
+se-ichi@nx9110:~/work/network/tcpip$ ./TCPMessageServer 5000
+Handling client 192.168.0.15
+Received: 回数= 1  預入金額= 3000
+回数= 1  引出金額= 713249463
+
+<<< クライアント側の動き >>>
+se-ichi@nx9110:~/work/network/tcpip$ ./TCPMessageClient 192.168.0.15 +3000 5000
+Received: 預入金額 = 1131376238
+預入回数 = 0
+引出金額 = 1701016608
+引出回数 = 0
+

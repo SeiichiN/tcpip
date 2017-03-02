@@ -1,0 +1,42 @@
+#-------------------------------------------#
+# TCPMessageClient と                          #
+# TCPMessageServer を作成する                  #
+#                    2016.12.30             #
+#                    by Seiichi Nukayama    #
+#-------------------------------------------#
+CC=gcc
+CFLAGS=-g -Wall
+OBJ1=TCPMessageClient.o DieWithError.o
+OBJ2=TCPMessageServer.o TransactTCPClient.o DieWithError.o
+
+all:	TCPMessageClient TCPMessageServer
+
+TCPMessageClient: $(OBJ1)
+	$(CC) $(CFLAGS) -o TCPMessageClient $(OBJ1)
+
+TCPMessageClient.o: TCPMessageClient.c
+#	$(CC) $(CFLAGS) -c TCPMessageClient.c
+
+TCPMessageServer: $(OBJ2)
+	$(CC) $(CFLAGS) -o TCPMessageServer $(OBJ2)
+
+TCPMessageServer.o: TCPMessageServer.c
+
+TransactTCPClient.o: TransactTCPClient.c
+
+DieWithError.o: DieWithError.c
+#	$(CC) $(CFLAGS) -c DieWithError.c
+
+clean:
+	rm -f TCPMessageClient $(OBJ1) TCPMessageServer $(OBJ2)
+
+cleanobj:
+	rm -f $(OBJ1) $(OBJ2)
+
+#------------------------------------------#
+# 疑問点                                   #
+#     各オブジェクトファイルを作るのに     #
+#     #(CC) 以下の記述はいらなかったけど   #
+#     どうなんだろ？                       #
+#     記述があったほうが早いみたいだけど。 #
+#------------------------------------------#

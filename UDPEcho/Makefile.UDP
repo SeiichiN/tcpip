@@ -1,0 +1,39 @@
+#-------------------------------------------#
+# UDPEchoClient と                          #
+# UFPEchoServer を作成する                  #
+#                    2016.01.01             #
+#                    by Seiichi Nukayama    #
+#-------------------------------------------#
+CC=gcc
+CFLAGS=-g -Wall
+OBJ1=UDPEchoClient.o DieWithError.o
+OBJ2=UDPEchoServer.o DieWithError.o
+
+all:	UDPEchoClient UDPEchoServer
+
+UDPEchoClient: $(OBJ1)
+	$(CC) $(CFLAGS) -o UDPEchoClient $(OBJ1)
+
+UDPEchoClient.o: UDPEchoClient.c UDPEcho.h
+	$(CC) $(CFLAGS) -c UDPEchoClient.c
+
+UDPEchoServer: $(OBJ2)
+	$(CC) $(CFLAGS) -o UDPEchoServer $(OBJ2)
+
+UDPEchoServer.o: UDPEchoServer.c UDPEcho.h
+	$(CC) $(CFLAGS) -c UDPEchoServer.c
+
+DieWithError.o: DieWithError.c
+clean:
+	rm -f UDPEchoClient $(OBJ1) UDPEchoServer $(OBJ2)
+
+cleanobj:
+	rm -f $(OBJ1) $(OBJ2)
+
+#------------------------------------------#
+# 疑問点                                   #
+#     各オブジェクトファイルを作るのに     #
+#     #(CC) 以下の記述はいらなかったけど   #
+#     どうなんだろ？                       #
+#     記述があったほうが早いみたいだけど。 #
+#------------------------------------------#

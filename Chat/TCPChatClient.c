@@ -44,7 +44,8 @@ int main(int argc, char *argv[])
 	char recvword[MAXWORD];
 	char *msgdata = NULL;
 	char *msgrvdata = NULL;
-	void *msgBuffer = (void *) recvword;  /* データ用バッファ */
+    //	void *msgBuffer = (void *) recvword;  /* データ用バッファ */
+	void *msgBuffer = NULL;  /* データ用バッファ */
 	unsigned int msgLen;           /* データのサイズ */
 	int bytesRcvd, totalBytesRcvd;   /* 1回のrecv() で読み取られる
                                       バイト数と全バイト数 */

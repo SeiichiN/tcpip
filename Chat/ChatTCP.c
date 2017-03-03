@@ -10,7 +10,8 @@ void ChatTCP(int clntSocket)
   /* クライアントから受け取るデータ */
 	char ClientData[MAXWORD];
 	/* クライアントからの受信バッファ */
-	void *ClientBuffer = (void *) &ClientData;
+    //	void *ClientBuffer = (void *) &ClientData;
+    void *ClientBuffer = NULL;
 	/* 返答データ */
 	char HentoData[MAXWORD];
 	/* 受信データ */
@@ -54,7 +55,7 @@ void ChatTCP(int clntSocket)
 		
 //		if ((bytesRcvd = recv(clntSocket, ClientBuffer + totalBytesRcvd,
 //							sizeof(ClientData) - totalBytesRcvd, 0)) <= 0)
-		if ((bytesRcvd = recv(clntSocket, ClientData + totalBytesRcvd,
+		if ((bytesRcvd = recv(clntSocket, ClientBuffer + totalBytesRcvd,
 							sizeof(ClientData) - totalBytesRcvd, 0)) <= 0)
 			DieWithError("recv() failed or connection closed prematurely");
 	}

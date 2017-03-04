@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
   /* クライアントのアドレス構造体の長さ */
   unsigned int clntLen;
   /* 接続時のクライアントへの返答 */
-  const char okmsg[] = "Connect OK!";
+  const char okmsg[] = "Connect OK!\n";
   /* そのサイズ */
   int okmsgsize;
 
